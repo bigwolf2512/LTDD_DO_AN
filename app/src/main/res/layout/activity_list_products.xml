@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="7dp"
+    tools:context=".List_Products">
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:background="@drawable/ic_re3"
+        android:drawableTop="@drawable/ic_baseline_person_outline_24"
+        android:onClick="user"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:background="@drawable/ic_re3"
+        android:drawableTop="@drawable/ic_baseline_storefront_24"
+        android:onClick="quanly"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintStart_toEndOf="@+id/button2" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:background="@drawable/ic_re3"
+        android:drawableTop="@drawable/ic_baseline_toc_24"
+        android:onClick="setting"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button3" />
+
+    <LinearLayout
+        android:layout_width="414dp"
+        android:layout_height="666dp"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-13dp"
+        tools:layout_editor_absoluteY="-8dp">
+
+        <SearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:paddingLeft="-8dp"
+            android:paddingRight="-8dp"
+            android:background="@color/white"
+            android:queryBackground="@android:color/transparent" />
+
+        <ImageView
+            android:id="@+id/imageBook"
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/book"
+            android:paddingLeft="7dp" />
+
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="187dp"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/textViewPrice"
+            android:layout_width="187dp"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/black" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
