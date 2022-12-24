@@ -16,6 +16,14 @@ public class MainActivity3 extends AppCompatActivity {
 
 
     }
+    public void list_products(View View){
+        Intent intent = new Intent(MainActivity3.this, List_Products.class);
+        startActivity(intent);
+    }
+    public void buy_products(View View){
+        Intent intent = new Intent(MainActivity3.this, Gio_hang.class);
+        startActivity(intent);
+    }
     public void user(View view){
         Intent intent = new Intent(MainActivity3.this, MainActivity3.class);
         startActivity(intent);
