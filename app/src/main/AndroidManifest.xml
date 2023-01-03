@@ -70,7 +70,14 @@
             <!-- android:value="" /> -->
         </activity>
         <activity
-            android:name=".MainActivity2"
+            android:name=".RegisterActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="MainActivity" />
+        </activity>
+        <activity
+            android:name=".LoginActivity"
             android:parentActivityName=".MainActivity">
 
             <!-- android:exported="false"> -->
