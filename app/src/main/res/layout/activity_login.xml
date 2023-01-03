@@ -92,9 +92,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editText_login_pwd"
         android:layout_marginTop="530dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="70dp"
-        android:text="ĐĂNG NHẬP" />
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:background="@drawable/ic_re1"
+        android:text="ĐĂNG NHẬP"
+        android:textColor="#FFFFFF"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -109,26 +111,13 @@
     <!-- not view-->
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageView_show_hide_pwd"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="360dp"
-        android:layout_marginTop="450dp"
-        app:srcCompat="@drawable/ic_baseline_visibility_24" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="360dp"
-        android:layout_marginTop="450dp"
-
-        android:scaleType="centerCrop"
-        android:visibility="visible"
-        app:srcCompat="@drawable/ic_baseline_visibility_off_24" />
+        android:layout_marginTop="440dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
