@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/imageView_logo"
-            android:text="Nhom2B"
+            android:text="Nhóm 2"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
@@ -38,8 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView_app_name"
-            android:layout_marginTop="70dp"
-            android:text="Welcome\nto\nOur Old Book Store"
+            android:layout_marginTop="100dp"
+            android:text="Old Book Store"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
@@ -48,10 +48,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView_main_head"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="100dp"
             android:layout_marginLeft="70dp"
             android:layout_marginRight="70dp"
-            android:text="Login" />
+            android:text="Đăng nhập" />
 
         <Button
             android:id="@+id/button_register"
@@ -60,7 +60,7 @@
             android:layout_below="@id/button_login"
             android:layout_marginLeft="70dp"
             android:layout_marginRight="70dp"
-            android:text="Register" />
+            android:text="Đăng ký" />
 
     </RelativeLayout>
 
