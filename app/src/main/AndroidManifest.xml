@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Do_an"
         tools:targetApi="31">
         <activity
-            android:name=".Gio_hang"
+            android:name=".features.feature_shop_cart.ShopCartActivity"
             android:exported="false"
             android:label="Giỏ hàng"
             android:parentActivityName=".MainActivity3">

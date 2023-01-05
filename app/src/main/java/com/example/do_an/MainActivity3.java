@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.do_an.features.feature_shop_cart.ShopCartActivity;
+
 public class MainActivity3 extends AppCompatActivity {
 
 
@@ -20,8 +22,8 @@ public class MainActivity3 extends AppCompatActivity {
         Intent intent = new Intent(MainActivity3.this, List_Products.class);
         startActivity(intent);
     }
-    public void buy_products(View View){
-        Intent intent = new Intent(MainActivity3.this, Gio_hang.class);
+    public void onOpeningShopCartPage(View View){
+        Intent intent = new Intent(MainActivity3.this, ShopCartActivity.class);
         startActivity(intent);
     }
     public void user(View view){

@@ -44,7 +44,7 @@
         android:background="@drawable/ic_re"
         android:drawableTop="@drawable/ic_baseline_shopping_cart_24"
         android:text="Giỏ hàng"
-        android:onClick="buy_products"
+        android:onClick="onOpeningShopCartPage"
         android:textColor="#FF000000"
         app:iconGravity="textTop"
         app:iconSize="50dp"
