@@ -29,7 +29,7 @@
         android:background="@drawable/ic_re"
         android:drawableTop="@drawable/ic_baseline_business_center_24"
         android:text="Danh sách sản phẩm"
-        android:onClick="list_products"
+        android:onClick="onOpeningListProductPage"
         android:textColor="#FF000000"
         app:iconGravity="textTop"
         app:layout_constraintStart_toStartOf="parent"

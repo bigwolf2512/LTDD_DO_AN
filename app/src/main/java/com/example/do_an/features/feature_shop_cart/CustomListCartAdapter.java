@@ -18,10 +18,10 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class CustomListAdapter extends ArrayAdapter<ProductModel> {
+public class CustomListCartAdapter extends ArrayAdapter<ProductModel> {
 
     // invoke the suitable constructor of the ArrayAdapter class
-    public CustomListAdapter(@NonNull Context context, ArrayList<ProductModel> arrayList) {
+    public CustomListCartAdapter(@NonNull Context context, ArrayList<ProductModel> arrayList) {
 
         // pass the context and arrayList for the super
         // constructor of the ArrayAdapter class

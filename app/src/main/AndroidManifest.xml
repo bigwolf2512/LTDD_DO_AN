@@ -23,10 +23,19 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".List_Products"
+            android:name=".features.feature_list_products.ListProductActivity"
             android:label="Danh sách sản phẩm"
             android:parentActivityName=".MainActivity3"
-            android:exported="false">
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".features.feature_list_products.ListProductDetailActivity"
+            android:label="Chi tiết sản phẩm"
+            android:parentActivityName=".features.feature_list_products.ListProductActivity"
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
