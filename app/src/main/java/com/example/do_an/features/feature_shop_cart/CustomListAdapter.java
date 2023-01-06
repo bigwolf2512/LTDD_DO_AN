@@ -6,41 +6,69 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.do_an.R;
 import com.example.do_an.models.ProductModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class CustomListAdapter extends ArrayAdapter<ProductModel> {
-    Context context;
-    ArrayList<ProductModel> listData;
-    int layoutResource;
 
-    public CustomListAdapter(Context context, int layoutResource, ArrayList<ProductModel> objects){
-        super(context, layoutResource, objects);
-        this.context = context;
-        this.layoutResource = layoutResource;
-        this.listData = objects;
+    // invoke the suitable constructor of the ArrayAdapter class
+    public CustomListAdapter(@NonNull Context context, ArrayList<ProductModel> arrayList) {
+
+        // pass the context and arrayList for the super
+        // constructor of the ArrayAdapter class
+        super(context, 0, arrayList);
     }
 
-    @SuppressLint("ViewHolder")
+    @SuppressLint("SetTextI18n")
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
-        LayoutInflater inflater = LayoutInflater.from(context);
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        convertView = inflater.inflate(layoutResource, null);
+        // convertView which is recyclable view
+        View currentItemView = convertView;
 
-        TextView textView1 = (TextView)convertView.findViewById(R.id.textViewName);
-        textView1.setText(listData.get(position).getName());
+        // of the recyclable view is null then inflate the custom layout for the same
+        if (currentItemView == null) {
+            currentItemView = LayoutInflater.from(getContext()).inflate(R.layout.activity_shop_cart_item, parent, false);
+        }
 
-        TextView textView2 = (TextView)convertView.findViewById(R.id.textViewPrice);
-        textView2.setText(listData.get(position).getPrice());
+        // get the position of the view from the ArrayAdapter
+        ProductModel currentNumberPosition = getItem(position);
 
-        return convertView;
+        // then according to the position of the view assign the desired image for the same
+        ImageView imageViewItemCart = currentItemView.findViewById(R.id.imageViewItemCart);
+
+        Picasso.get()
+                .load(currentNumberPosition.getImage())
+                .resize(84, 84)
+                .centerCrop()
+                .into(imageViewItemCart);
+
+        // then according to the position of the view assign the desired TextView 1 for the same
+        TextView textViewName = currentItemView.findViewById(R.id.textViewName);
+        textViewName.setText(currentNumberPosition.getName());
+
+        // then according to the position of the view assign the desired TextView 2 for the same
+        TextView textViewPrice = currentItemView.findViewById(R.id.textViewPrice);
+        textViewPrice.setText(formatMoney(Long.toString(currentNumberPosition.getPrice())));
+
+        // then return the recyclable view
+        return currentItemView;
+    }
+
+    public String formatMoney(String money){
+
+        return  money + "đ";
     }
 }
+
+

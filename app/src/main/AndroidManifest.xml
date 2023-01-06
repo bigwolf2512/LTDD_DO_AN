@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/nhom2"
@@ -15,7 +15,7 @@
         tools:targetApi="31">
         <activity
             android:name=".features.feature_shop_cart.ShopCartActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="Giỏ hàng"
             android:parentActivityName=".MainActivity3">
             <meta-data
@@ -101,5 +101,6 @@
                 android:value="" />
         </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"
+        tools:ignore="ManifestOrder" />
 </manifest>

@@ -1,15 +1,21 @@
 package com.example.do_an.models;
 
 public class ProductModel {
+    //Add this
+
+    public ProductModel(){}
+
     public ProductModel(
-        String name , int price, String img, String description,int quantity
+        String name, long price, String image, String description, long quantity
     ) {
         this.name = name;
         this.price = price;
-        this.img = img;
+        this.image = image;
         this.description = description;
         this.quantity = quantity;
     }
+
+
 
     public String getName() {
         return name;
@@ -19,20 +25,20 @@ public class ProductModel {
         this.name = name;
     }
 
-    public int getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 
-    public String getImg() {
-        return img;
+    public String getImage() {
+        return image;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getDescription() {
@@ -43,20 +49,17 @@ public class ProductModel {
         this.description = description;
     }
 
-    public int getQuantity() {
+    public long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(long quantity) {
         this.quantity = quantity;
     }
 
-    String name;
-    int price;
-    String img;
-    String description;
-    int quantity;
-
-
-
+    private String name;
+    private long price;
+    private String image;
+    private String description;
+    private long quantity;
 }
