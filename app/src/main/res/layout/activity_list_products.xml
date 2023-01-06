@@ -48,15 +48,15 @@
         tools:layout_editor_absoluteX="-13dp"
         tools:layout_editor_absoluteY="-8dp">
 
-        <SearchView
+    <!--    <SearchView
             android:id="@+id/search_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:iconifiedByDefault="false"
             android:paddingLeft="-8dp"
             android:paddingRight="-8dp"
-            android:background="@color/white"
-            android:queryBackground="@android:color/transparent" />
+            android:queryBackground="@android:color/transparent" />-->
 
         <ImageView
             android:id="@+id/imageBook"
@@ -64,24 +64,19 @@
             android:layout_height="80dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/book"
             android:paddingLeft="7dp" />
+            <!--android:background="@drawable/book"-->
+
 
         <TextView
-            android:id="@+id/textViewName"
-            android:layout_width="187dp"
-            android:layout_height="wrap_content"
-            android:text="Name"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/black" />
+            android:id="@+id/tv_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/textViewPrice"
-            android:layout_width="187dp"
-            android:layout_height="wrap_content"
-            android:text="Price"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@android:color/black" />
+            android:id="@+id/tv_Price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

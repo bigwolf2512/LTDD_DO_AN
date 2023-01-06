@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+
 import com.example.do_an.features.feature_shop_cart.ShopCartActivity;
 
 public class MainActivity3 extends AppCompatActivity {
@@ -15,9 +16,8 @@ public class MainActivity3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_page);
-
-
     }
+
     public void list_products(View View){
         Intent intent = new Intent(MainActivity3.this, List_Products.class);
         startActivity(intent);
