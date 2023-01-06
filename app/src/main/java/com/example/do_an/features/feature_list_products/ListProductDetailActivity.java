@@ -31,7 +31,7 @@ public class ListProductDetailActivity extends AppCompatActivity {
         textViewProductDetailName.setText(name);
 
         TextView textViewProductDetailPrice = findViewById(R.id.textViewProductDetailPrice);
-        textViewProductDetailPrice.setText(Long.toString(price));
+        textViewProductDetailPrice.setText("Giá của sản phẩm: " + Long.toString(price) + "đ");
 
         TextView textViewProductDetailDescription = findViewById(R.id.textViewProductDetailDescription);
         textViewProductDetailDescription.setText(description);
