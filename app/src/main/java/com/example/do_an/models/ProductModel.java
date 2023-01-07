@@ -1,12 +1,9 @@
 package com.example.do_an.models;
 
-public class ProductModel {
-    //Add this
-    public ProductModel(){}
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    public ProductModel(
-            String id, String name, long price, String image, String description, long quantity
-    ) {
+public class ProductModel {
+    public ProductModel(String id, String name, long price, String image, String description, long quantity) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -15,55 +12,72 @@ public class ProductModel {
         this.quantity = quantity;
     }
 
-    public String getId() {
-        return id;
+    public ProductModel() {
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public long getPrice() {
-        return price;
-    }
-
-    public void setPrice(long price) {
-        this.price = price;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
+    @JsonProperty("description")
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
+    String description;
+
+    @JsonProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    String id;
+
+    @JsonProperty("image")
+    public String getImage() {
+        return this.image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    String image;
+
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    String name;
+
+    @JsonProperty("price")
+    public long getPrice() {
+        return this.price;
+    }
+
+    public void setPrice(long price) {
+        this.price = price;
+    }
+
+    long price;
+
+    @JsonProperty("quantity")
     public long getQuantity() {
-        return quantity;
+        return this.quantity;
     }
 
     public void setQuantity(long quantity) {
         this.quantity = quantity;
     }
 
-
-    private String id;
-    private String name;
-    private long price;
-    private String image;
-    private String description;
-    private long quantity;
+    long quantity;
 }

@@ -24,10 +24,9 @@ public abstract class GetMethodFirebaseFirestore extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         db.collection(path()).get().addOnSuccessListener(queryDocumentSnapshots -> {
-
             if (!queryDocumentSnapshots.isEmpty()) {
                 callBack(queryDocumentSnapshots, db);
-                Toast.makeText(setContext(), "Data Loaded Success", Toast.LENGTH_SHORT).show();
+             //   Toast.makeText(setContext(), "Data Loaded Success", Toast.LENGTH_SHORT).show();
             } else {
                 // if the snapshot is empty we are displaying a toast message.
                 Toast.makeText(setContext(), "No data found in Database", Toast.LENGTH_SHORT).show();

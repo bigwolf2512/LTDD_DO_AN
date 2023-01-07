@@ -28,6 +28,7 @@ public class ListProductActivity extends GetMethodFirebaseFirestore {
     @Override
     public void callBack(QuerySnapshot data, FirebaseFirestore db) {
         List<DocumentSnapshot> list = data.getDocuments();
+
         final ArrayList<ProductModel> arrayList = new ArrayList<>();
 
         for (DocumentSnapshot d : list) {
@@ -45,11 +46,9 @@ public class ListProductActivity extends GetMethodFirebaseFirestore {
             listView.setOnItemClickListener((parent, view, position, id) -> {
                 assert p != null;
                 ProductModel result =  arrayList.get(position);
-                onOpeningListProductsDetail(result.getId(), result.getName(),result.getDescription(),result.getImage(), result.getPrice(), result.getQuantity());
+                onOpeningListProductsDetail(d.getId(), result.getName(),result.getDescription(),result.getImage(), result.getPrice(), result.getQuantity());
             });
         }
-
-
     }
 
     @Override
