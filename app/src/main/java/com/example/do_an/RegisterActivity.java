@@ -21,12 +21,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText editTextRegisterFullName, editTextRegisterEmail, editTextRegisterMobile,
             editTextRegisterPwd, editTextRegisterConfirmPwd;
     private ProgressBar progressBar;
+    private FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,9 @@ public class RegisterActivity extends AppCompatActivity {
         editTextRegisterPwd = findViewById(R.id.editText_register_password);
         editTextRegisterConfirmPwd = findViewById(R.id.editText_register_confirm_password);
         progressBar = findViewById(R.id.progressBar);
+
+        // Initialize Firebase Auth
+        auth = FirebaseAuth.getInstance();
 
         Button buttonRegister = findViewById(R.id.button_register);
         buttonRegister.setOnClickListener(new View.OnClickListener() {
@@ -98,28 +103,43 @@ public class RegisterActivity extends AppCompatActivity {
             }
             //Register User using the credentials given
             private void registerUser(String textFullName, String textEmail, String textMobile, String textPwd, String textConfirmPwd) {
-                FirebaseAuth auth = FirebaseAuth.getInstance();
+                auth = FirebaseAuth.getInstance();
                 auth.createUserWithEmailAndPassword(textEmail, textPwd).addOnCompleteListener(RegisterActivity.this,
                         new OnCompleteListener<AuthResult>() {
+
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(RegisterActivity.this, "User registered successfully", Toast.LENGTH_LONG).show();
+
                                     FirebaseUser firebaseUser = auth.getCurrentUser();
 
-                                    //send Vertification Email
-                                    firebaseUser.sendEmailVerification();
+                                    if (firebaseUser != null) {
+                                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(textFullName).build();
+                                        firebaseUser.updateProfile(profileUpdates);
+                                        Toast.makeText(RegisterActivity.this, "User registered successfully", Toast.LENGTH_LONG).show();
 
-                                    //Open User Profile after successful registration
-                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
 
-                                    //To Prevent User from returning back to Register Activity on pressing back button after registration
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    startActivity(intent);
-                                    finish();
+                                        //Open User Profile after successful registration
+                                        Intent userProfileActivity = new Intent(RegisterActivity.this, LoginActivity.class);
+
+                                        //To Prevent User from returning back to Register Activity on pressing back button after registration
+                                        userProfileActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(userProfileActivity);
+                                        finish();
+                                    }
+                                } else {
+                                    try {
+                                        throw task.getException();
+                                    } catch (Exception e) {
+                                        Toast.makeText(RegisterActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                    progressBar.setVisibility(View.GONE);
                                 }
                             }
+
+
                         });
+
 
             }
         });

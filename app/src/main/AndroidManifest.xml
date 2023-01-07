@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Do_an"
         tools:targetApi="31">
+
         <activity
             android:name=".Gio_hang"
             android:exported="false"
@@ -61,6 +62,16 @@
         </activity>
         <activity
             android:name=".MainActivity3"
+            android:parentActivityName=".MainActivity">
+
+            <!-- android:exported="false"> -->
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=".MainActivity" />
+            <!-- android:value="" /> -->
+        </activity>
+        <activity
+            android:name=".UserProfileActivity"
             android:parentActivityName=".MainActivity">
 
             <!-- android:exported="false"> -->
