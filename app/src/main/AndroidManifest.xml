@@ -41,6 +41,15 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".list_order.ListOrderActivity"
+            android:label="Lịch sử đơn hàng"
+            android:parentActivityName=".MainActivity3"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".splashScreenActivity"
             android:exported="true"
             android:theme="@style/SplashscreenTheme">

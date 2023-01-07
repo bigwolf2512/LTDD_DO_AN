@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.do_an.features.feature_list_products.ListProductActivity;
 import com.example.do_an.features.feature_shop_cart.ShopCartActivity;
+import com.example.do_an.list_order.ListOrderActivity;
 
 public class MainActivity3 extends AppCompatActivity {
 
@@ -23,6 +24,10 @@ public class MainActivity3 extends AppCompatActivity {
     }
     public void onOpeningShopCartPage(View View){
         Intent intent = new Intent(MainActivity3.this, ShopCartActivity.class);
+        startActivity(intent);
+    }
+    public void onOpeningListOrderActivity(View View){
+        Intent intent = new Intent(MainActivity3.this, ListOrderActivity.class);
         startActivity(intent);
     }
     public void user(View view){
