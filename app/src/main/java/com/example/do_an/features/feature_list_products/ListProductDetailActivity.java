@@ -12,21 +12,8 @@ import com.example.do_an.R;
 import com.example.do_an.core_firebase_crud.PostMethodFirebaseFirestore;
 import com.example.do_an.features.feature_shop_cart.ShopCartActivity;
 import com.example.do_an.models.ProductModel;
-import com.example.do_an.models.UserModel;
-import com.example.do_an.share.Debugger;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
 public class ListProductDetailActivity extends PostMethodFirebaseFirestore {
     int quantity = 1;
@@ -44,36 +31,10 @@ public class ListProductDetailActivity extends PostMethodFirebaseFirestore {
     }
 
     @Override
-    public synchronized Map<String, Object> arg() {
-
-        Map<String, Object> map = new HashMap<>();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        ArrayList<ProductModel> arrayList = new ArrayList<>();
-
-        Task<DocumentSnapshot> doc = db.collection("carts")
-                .document(Objects.requireNonNull(auth.getUid()))
-                .get();
-
-        doc.addOnSuccessListener(queryDocumentSnapshots -> {
-            UserModel _userModel = null;
-            Gson gson = new Gson();
-            JSONObject json = new JSONObject(Objects.requireNonNull(queryDocumentSnapshots.getData()));
-
-            _userModel = gson.fromJson(json.toString(), UserModel.class);
-
-            Debugger.log("bbbbb");
-            Debugger.log(json);
-            Debugger.log(_userModel.getUserId());
-            Debugger.log(_userModel.getItems());
-        });
-
-        arrayList.add(data);
-
-        map.put("userId", auth.getUid());
-        map.put("items", arrayList);
-        return map;
+    public ProductModel data() {
+        return data;
     }
+
 
     public void onAddToCartButton(View view) {
         onAddToCartButtonFromPostMethod(view);

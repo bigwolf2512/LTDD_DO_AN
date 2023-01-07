@@ -19,14 +19,17 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class CustomListCartAdapter extends ArrayAdapter<ProductModel> {
+    ArrayList<ProductModel> arrayList;
+    ProductModel currentNumberPosition;
 
     // invoke the suitable constructor of the ArrayAdapter class
     public CustomListCartAdapter(@NonNull Context context, ArrayList<ProductModel> arrayList) {
-
         // pass the context and arrayList for the super
         // constructor of the ArrayAdapter class
         super(context, 0, arrayList);
+        this.arrayList = arrayList;
     }
+
 
     @SuppressLint("SetTextI18n")
     @NonNull
@@ -42,32 +45,54 @@ public class CustomListCartAdapter extends ArrayAdapter<ProductModel> {
         }
 
         // get the position of the view from the ArrayAdapter
-        ProductModel currentNumberPosition = getItem(position);
+        currentNumberPosition = getItem(position);
 
         // then according to the position of the view assign the desired image for the same
-        ImageView imageViewItemCart = currentItemView.findViewById(R.id.imageViewItemCart);
+        ImageView imageViewItemCart = currentItemView.findViewById(R.id.imageCartItemImage);
 
         Picasso.get()
                 .load(currentNumberPosition.getImage())
-                .resize(84, 84)
+                .resize(300, 300)
                 .centerCrop()
                 .into(imageViewItemCart);
 
         // then according to the position of the view assign the desired TextView 1 for the same
-        TextView textViewName = currentItemView.findViewById(R.id.textViewName);
+        TextView textViewName = currentItemView.findViewById(R.id.textViewCartItemName);
         textViewName.setText(currentNumberPosition.getName());
 
         // then according to the position of the view assign the desired TextView 2 for the same
-        TextView textViewPrice = currentItemView.findViewById(R.id.textViewPrice);
+        TextView textViewPrice = currentItemView.findViewById(R.id.textViewCartItemPrice);
         textViewPrice.setText(formatMoney(Long.toString(currentNumberPosition.getPrice())));
+
+        TextView textViewQuantity = currentItemView.findViewById(R.id.textViewCartItemQuantity);
+        textViewQuantity.setText(Long.toString(currentNumberPosition.getQuantity()));
 
         // then return the recyclable view
         return currentItemView;
     }
 
-    public String formatMoney(String money){
+    public String formatMoney(String money) {
+        return money + "đ";
+    }
 
-        return  money + "đ";
+    @SuppressLint("SetTextI18n")
+    public void onIncreaseQuantityCartButton(View view) {
+        long qty = currentNumberPosition.getQuantity();
+        qty += 1;
+        TextView textViewQuantity = view.findViewById(R.id.textViewCartItemQuantity);
+        textViewQuantity.setText(Long.toString(qty));
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void onDecreaseQuantityCartButton(View view) {
+        long qty = currentNumberPosition.getQuantity();
+        qty = onCheckQuantity(qty + 1);
+        TextView textViewQuantity = view.findViewById(R.id.textViewCartItemQuantity);
+        textViewQuantity.setText(Long.toString(qty));
+    }
+
+    public long onCheckQuantity(long quantity) {
+        return Math.max(quantity, 1);
     }
 }
 
