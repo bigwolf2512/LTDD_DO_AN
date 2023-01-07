@@ -49,14 +49,13 @@ public abstract class PostMethodFirebaseFirestore extends AppCompatActivity {
                 .get();
 
         doc.addOnSuccessListener(queryDocumentSnapshots -> {
-            Gson gson = new Gson();
-            JSONObject json = new JSONObject(Objects.requireNonNull(queryDocumentSnapshots.getData()));
+            if(queryDocumentSnapshots.getData() != null){
+                Gson gson = new Gson();
+                JSONObject json = new JSONObject();
+                UserModel _userModel = gson.fromJson(json.toString(), UserModel.class);
+                arrayList.addAll(_userModel.getItems());
+            }
 
-            UserModel _userModel = gson.fromJson(json.toString(), UserModel.class);
-
-
-
-            arrayList.addAll(_userModel.getItems());
             arrayList.add(data());
 
             map.put("userId", auth.getUid());

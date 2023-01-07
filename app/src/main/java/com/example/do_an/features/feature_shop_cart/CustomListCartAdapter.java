@@ -75,25 +75,7 @@ public class CustomListCartAdapter extends ArrayAdapter<ProductModel> {
         return money + "đ";
     }
 
-    @SuppressLint("SetTextI18n")
-    public void onIncreaseQuantityCartButton(View view) {
-        long qty = currentNumberPosition.getQuantity();
-        qty += 1;
-        TextView textViewQuantity = view.findViewById(R.id.textViewCartItemQuantity);
-        textViewQuantity.setText(Long.toString(qty));
-    }
 
-    @SuppressLint("SetTextI18n")
-    public void onDecreaseQuantityCartButton(View view) {
-        long qty = currentNumberPosition.getQuantity();
-        qty = onCheckQuantity(qty + 1);
-        TextView textViewQuantity = view.findViewById(R.id.textViewCartItemQuantity);
-        textViewQuantity.setText(Long.toString(qty));
-    }
-
-    public long onCheckQuantity(long quantity) {
-        return Math.max(quantity, 1);
-    }
 }
 
 

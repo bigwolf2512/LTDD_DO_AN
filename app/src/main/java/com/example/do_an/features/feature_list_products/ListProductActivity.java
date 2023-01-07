@@ -48,6 +48,7 @@ public class ListProductActivity extends GetMethodFirebaseFirestore {
                 ProductModel result =  arrayList.get(position);
                 onOpeningListProductsDetail(d.getId(), result.getName(),result.getDescription(),result.getImage(), result.getPrice(), result.getQuantity());
             });
+
         }
     }
 
