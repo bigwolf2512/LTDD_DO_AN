@@ -26,6 +26,7 @@
         android:layout_weight="1"
         android:background="@drawable/ic_re_gh"
         android:text="@string/muaHangTiep"
+        android:onClick="onOpeningListProductPageFromShopCart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/pay"
         app:layout_constraintHorizontal_bias="0.34"

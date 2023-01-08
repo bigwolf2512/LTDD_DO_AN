@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import com.example.do_an.R;
 import com.example.do_an.core_firebase_crud.GetMethodFirebaseFirestore;
+import com.example.do_an.features.feature_list_products.ListProductActivity;
 import com.example.do_an.features.feature_list_products.ListProductDetailActivity;
 import com.example.do_an.models.ProductModel;
 import com.example.do_an.models.UserModel;
@@ -55,7 +56,7 @@ public class ShopCartActivity extends GetMethodFirebaseFirestore {
             }
         }
 
-        assert map != null;
+
         JSONObject json = new JSONObject(map);
 
         userModel = gson.fromJson(json.toString(), UserModel.class);
@@ -142,6 +143,11 @@ public class ShopCartActivity extends GetMethodFirebaseFirestore {
         }
         return _list;
 
+    }
+
+    public void onOpeningListProductPageFromShopCart(View view){
+        Intent intent = new Intent(ShopCartActivity.this, ListProductActivity.class);
+        startActivity(intent);
     }
 }
 

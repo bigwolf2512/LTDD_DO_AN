@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.do_an.models.ProductModel;
 import com.example.do_an.models.UserModel;
+import com.example.do_an.share.Debugger;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -49,9 +50,11 @@ public abstract class PostMethodFirebaseFirestore extends AppCompatActivity {
                 .get();
 
         doc.addOnSuccessListener(queryDocumentSnapshots -> {
+            Debugger.log("123123");
+
             if(queryDocumentSnapshots.getData() != null){
                 Gson gson = new Gson();
-                JSONObject json = new JSONObject();
+                JSONObject json = new JSONObject(queryDocumentSnapshots.getData());
                 UserModel _userModel = gson.fromJson(json.toString(), UserModel.class);
                 arrayList.addAll(_userModel.getItems());
             }
